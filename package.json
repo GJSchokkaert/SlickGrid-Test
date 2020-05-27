@@ -1,0 +1,44 @@
+{
+  "name": "slickgrid-test",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --hot --inline --mode development",
+    "build": "cross-env NODE_ENV=production webpack"
+  },
+  "author": "JK",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "autoprefixer": "^9.7.6",
+    "babel-loader": "^8.1.0",
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.5.3",
+    "less": "^3.11.1",
+    "less-loader": "^6.1.0",
+    "postcss-loader": "^3.0.0",
+    "resolve-url-loader": "^3.1.1",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "url-loader": "^4.1.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "d3": "^4.13.0",
+    "jquery": "^3.5.0",
+    "jquery-slimscroll": "^1.3.8",
+    "jquery-ui": "1.12.1",
+    "moment": "^2.24.0",
+    "slickgrid-es6": "^3.0.3",
+    "underscore": "^1.10.2",
+    "underscore-contrib": "^0.3.0"
+  }
+}
