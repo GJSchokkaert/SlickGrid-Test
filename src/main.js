@@ -44,6 +44,7 @@ var lastcolumnwidth
  * (3)  -   If the activeCssClass equals icon-expand -> the missing column is added (will be the column after the current one in the originalColumns)
  *          IF the activeCssClass equals icon-collaps -> the column next to the current one will be deleted
  * (4)  -   Adapt the columns in the grid to the renewed activeColumns
+ * (5)  -   Makes sure that the x-axis moves along with the grid container
  * 
  */
 const columns = [{
@@ -85,7 +86,7 @@ const columns = [{
                         widthSvgCanvas = $(".ui-widget-content").width();
                         $("#parentAxis").width(widthSvgCanvas);
                     }
-                    changeAxisPosition();
+                    changeAxisPosition(); //(5)
                 }
             }]
         }
