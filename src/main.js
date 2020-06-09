@@ -17,6 +17,8 @@ let maxData = d3.max(data, function(d) { return d3.max([d.current, d.previous, d
 let bulletdata, erasewaitingvalue, bulletcontainer, bulletchart, bulletchartSvg, svgAxis, xscale;
 let chartWidth = 300;
 let rowHeight = 40;
+var widthSvgCanvas;
+var lastcolumnwidth
 
 /**
  * Definitions of the columns in the grid
@@ -71,11 +73,19 @@ const columns = [{
                     if (activeCssClass === "icon-expand") {
                         var columnToAdd = originalColumns[currentColumnIndex + 1];
                         activeColumns.splice(currentColumnIndex + 1, 0, columnToAdd);
+
                     } else {
                         activeColumns.splice(currentColumnIndex + 1, 1);
                     } //(3)
 
                     grid.setColumns(activeColumns); //(4)
+
+                    function changeAxisPosition() {
+
+                        widthSvgCanvas = $(".ui-widget-content").width();
+                        $("#parentAxis").width(widthSvgCanvas);
+                    }
+                    changeAxisPosition();
                 }
             }]
         }
@@ -270,34 +280,26 @@ function renderChart(cellNode, row, dataContext, colDef) {
  * x-Axis 
  */
 
-renderXAxis();
 
 function renderXAxis() {
+    widthSvgCanvas = $(".ui-widget-content").width();
+    $("#parentAxis").width(widthSvgCanvas);
 
-    function posAxis() {
-        let totalsize = 0;
-        for (let i = 0; i < columns.length - 1; i++) {
-            totalsize = totalsize + columns[i].width;
-        }
-        return totalsize - 5;
-    }
-
-    console.log(grid.getColumns());
-    console.log(grid.getColumns()[0].width);
+    lastcolumnwidth = $(".bulletchart").width();
 
     svgAxis = d3.select("#axiscontainer")
         .append("svg")
-        .attr("width", chartWidth)
-        .attr("transform", "translate(" + posAxis() + ",0)");
+        .attr("width", lastcolumnwidth)
+        .attr("transform", "translate(0,0)");
 
     xscale = d3.scaleLinear()
         .domain([0, maxData])
-        .range([0, chartWidth]);
+        .range([10, lastcolumnwidth]);
 
     svgAxis.append("g")
-        .attr("transform", "translate(10,0)")
+        .attr("transform", "translate(0,0)")
         .attr("class", "xaxis")
-        .call(d3.axisBottom(xscale).ticks(4))
+        .call(d3.axisBottom(xscale).ticks(5))
         .select(".domain").remove();
 
     svgAxis.append("text")
@@ -305,8 +307,10 @@ function renderXAxis() {
         .attr("x", 10)
         .attr("y", 40)
         .text("Current (bar) Vs Previous (black) Vs Baseline(grey)");
-}
 
+
+}
+renderXAxis();
 
 /**
  * headerbuttons: registration functions

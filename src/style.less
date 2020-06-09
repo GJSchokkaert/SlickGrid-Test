@@ -20,17 +20,18 @@
 .percent-complete-bar {
   display: inline-block;
   height: 12px;
+  border-radius: 0;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
 }
 
 .bulletchart{
   .bullet {
+    padding-left: 11px;
     .measure{
       height: 60%;
     }
-    .range {
-      
+    .range { 
       fill: white;
       opacity: 1%;
     }   
@@ -53,9 +54,8 @@
   fill:salmon;
 }
 
-#axiscontainer{
-  display: block;
-  clear: both;
+#axiscontainer{  
+  float: right;
 }
 
 .axistitle{
@@ -79,3 +79,4 @@
 .icon-collapse{
     background-image: url('../public/collapse.gif');
   }
+
