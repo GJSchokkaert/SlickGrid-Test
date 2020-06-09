@@ -1,15 +1,12 @@
 $grid-border-color: transparent;
 $grid-border-style: solid;
-
 $grid-header-background: rgb(245, 245, 245);
-
 $grid-cell-color: rgb(245, 245, 245);
 $grid-cell-selected-color: darken($grid-cell-color, 20%);
-
 $cell-padding-top: 4px;
 $cell-padding-right: 4px;
 $cell-padding-bottom: 4px;
 $cell-padding-left: 4px;
-
 @import "~slickgrid-es6/dist/slick.grid.scss";
 @import "~slickgrid-es6/dist/slick-default-theme.scss";
+@import "~slickgrid-es6/dist/slick.headerbuttons.css";
