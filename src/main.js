@@ -94,9 +94,9 @@ const columns = [{
     { id: "duration", field: "duration", width: 120, name: "Duration" },
     { id: "%", name: "% Complete", field: "percentComplete", width: 110, resizable: false, formatter: Formatters.PercentCompleteBar },
     { id: "effort-driven", name: "Effort Driven", sortable: false, width: 50, resizable: false, cssClass: "cell-effort-driven", field: "effortDriven", formatter: Formatters.Checkmark },
-    { id: "baseline", name: "Baseline", field: "baseline" },
-    { id: "previous", name: "Previous", field: "previous" },
-    { id: "current", name: "Current", field: "current" },
+    { id: "baseline", name: "Baseline", field: "baseline", cssClass: "number" },
+    { id: "previous", name: "Previous", field: "previous", cssClass: "number" },
+    { id: "current", name: "Current", field: "current", cssClass: "number" },
     { id: "chart", name: "", sortable: true, width: 350, cssClass: "bulletchart", formatter: waitingFormatter, rerenderOnResize: true, asyncPostRender: renderChart }
 ];
 
@@ -319,3 +319,34 @@ renderXAxis();
 
 let headerButtonsPlugin = new Plugins.HeaderButtons();
 grid.registerPlugin(headerButtonsPlugin);
+
+
+//
+
+grid.onClick.subscribe(function(e, args) {
+    /*var { dataCurrentCell, colIndex, rowIndex, rowID, columnID, value, columnDef } = getMetadataCell(args);
+    var el = $(e.target);*/
+
+    $(".slick-cell.number").addClass("highlight");
+
+});
+
+/*function getMetadataCell(args) {
+    var dataCurrentCell = args.item;
+    var colIndex = args.cell;
+    var rowIndex = args.row;
+    var rowID = data.id;
+
+    var columnDef = grid.getColumns()[colIndex];
+    var columnID = columnDef.id;
+    var value = data[columnDef.field];
+    return {
+        dataCurrentCell: dataCurrentCell,
+        colIndex: colIndex,
+        rowIndex: rowIndex,
+        rowID: rowID,
+        columnID: columnID,
+        value: value,
+        columnDef: columnDef
+    }
+}*/
