@@ -80,13 +80,12 @@
     background-image: url('../public/collapse.gif');
   }
 
-.number.highlight {
-  opacity:10% !important;
-  
-  &.active{
-    background-color: lightblue !important;
-    opacity: 100% !important;
+
+.highlight{
+  background-color: lightblue !important;
+  &:not(.active){
+    opacity:10% !important;
+    background-color: white  !important;
   }
 }
-
 

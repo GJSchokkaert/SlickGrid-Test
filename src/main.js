@@ -91,13 +91,13 @@ const columns = [{
             }]
         }
     },
-    { id: "duration", field: "duration", width: 120, name: "Duration", cssClass: "outside" },
-    { id: "%", name: "% Complete", field: "percentComplete", cssClass: "outside", width: 110, resizable: false, formatter: Formatters.PercentCompleteBar },
-    { id: "effort-driven", name: "Effort Driven", sortable: false, width: 50, resizable: false, cssClass: "cell-effort-driven outside", field: "effortDriven", formatter: Formatters.Checkmark },
+    { id: "duration", field: "duration", width: 120, name: "Duration" },
+    { id: "%", name: "% Complete", field: "percentComplete", width: 110, resizable: false, formatter: Formatters.PercentCompleteBar },
+    { id: "effort-driven", name: "Effort Driven", sortable: false, width: 50, resizable: false, cssClass: "cell-effort-driven", field: "effortDriven", formatter: Formatters.Checkmark },
     { id: "baseline", name: "Baseline", field: "baseline", cssClass: "number" },
     { id: "previous", name: "Previous", field: "previous", cssClass: "number" },
     { id: "current", name: "Current", field: "current", cssClass: "number" },
-    { id: "chart", name: "", sortable: true, width: 350, cssClass: "bulletchart outside", formatter: waitingFormatter, rerenderOnResize: true, asyncPostRender: renderChart }
+    { id: "chart", name: "", sortable: true, width: 350, cssClass: "bulletchart", formatter: waitingFormatter, rerenderOnResize: true, asyncPostRender: renderChart }
 ];
 
 const options = {
@@ -320,29 +320,16 @@ renderXAxis();
 let headerButtonsPlugin = new Plugins.HeaderButtons();
 grid.registerPlugin(headerButtonsPlugin);
 
-/*
- *Formatting numbers 
- */
+
+//
 
 grid.onClick.subscribe(function(e, args) {
     /*var { dataCurrentCell, colIndex, rowIndex, rowID, columnID, value, columnDef } = getMetadataCell(args);
     var el = $(e.target);*/
 
-    /*if ($(".outside").hasClass("active")) {
-        $(".slick-cell.number").removeClass("highlight");
-    }*/
-
-    //if ($(".slick-cell.number").hasClass("active")) {
     $(".slick-cell.number").addClass("highlight");
-    //}
 
 });
-
-grid.onDblClick.subscribe(function(e, args) {
-    $(".slick-cell.number").removeClass("highlight");
-})
-
-
 
 /*function getMetadataCell(args) {
     var dataCurrentCell = args.item;
@@ -363,20 +350,3 @@ grid.onDblClick.subscribe(function(e, args) {
         columnDef: columnDef
     }
 }*/
-
-/* optie met toggle 
-*
-var toggle = function (a, b) {
-    var togg = false;
-    return function () {
-        // passes return value back to caller
-        return (togg = !togg) ? a() : b();
-    };
-};
-
-grid.onClick.subscribe(toggle(function(){
-    $(".slick-cell.number").addClass("highlight");
-},function(){
-    $(".slick-cell.number").removeClass("highlight");
-}));
-*/
