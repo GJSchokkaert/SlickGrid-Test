@@ -1,0 +1,48 @@
+line {
+    stroke: grey;
+    stroke-width: 1.5;
+}
+
+.Past {
+    stroke: black;
+    stroke-width: 2;
+    stroke-opacity: 0%;
+}
+
+.positive {
+    fill: #687795;
+}
+
+#negativeEvolution {
+    fill: red;
+}
+
+#positiveEvolution {
+    fill: green;
+    opacity: 50%;
+}
+
+.total {
+    fill: lightgray;
+}
+
+.AOP.Text:last-child {
+    font-size: 0 !important;
+}
+
+.targetLabelText {
+    font-size: 14px;
+}
+
+.yaxis {
+    opacity: 0%;
+}
+
+.xaxis path,
+.tick line {
+    opacity: 0%;
+}
+
+.xaxis {
+    font-size: 14px;
+}
